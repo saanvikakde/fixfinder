@@ -1,14 +1,12 @@
-
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { User, MapPin, Star, Search, Bike, Scooter, Wrench } from "lucide-react";
+import { User, MapPin, Star, Search, Bike, Truck, Wrench } from "lucide-react";
 import Layout from "@/components/Layout";
 
-// Mock providers data
 const mockProviders = [
   {
     id: 1,
@@ -89,7 +87,6 @@ const Providers = () => {
   const [serviceType, setServiceType] = useState("all");
   const [location, setLocation] = useState("all");
   
-  // Filter providers based on search and filters
   const filteredProviders = mockProviders.filter((provider) => {
     const matchesSearch = 
       provider.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -112,7 +109,6 @@ const Providers = () => {
             Connect with skilled service providers in the ASU community.
           </p>
           
-          {/* Search and Filters */}
           <div className="bg-white p-6 rounded-lg shadow-md">
             <div className="grid md:grid-cols-4 gap-4">
               <div className="relative">
@@ -217,7 +213,7 @@ const Providers = () => {
                       )}
                       {provider.serviceTypes.includes("scooter") && (
                         <span className="bg-primary/10 text-primary px-2 py-1 rounded-full text-xs flex items-center">
-                          <Scooter className="h-3 w-3 mr-1" /> Scooter
+                          <Truck className="h-3 w-3 mr-1" /> Scooter
                         </span>
                       )}
                       {provider.serviceTypes.includes("other") && (

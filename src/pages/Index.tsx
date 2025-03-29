@@ -1,9 +1,8 @@
-
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent } from "@/components/ui/card";
-import { Wrench, Bike, Scooter, User, Search, MapPin } from "lucide-react";
+import { Wrench, Bike, Truck, User, Search, MapPin } from "lucide-react";
 import Layout from "@/components/Layout";
 
 const services = [
@@ -15,7 +14,7 @@ const services = [
   },
   {
     id: 2,
-    icon: <Scooter className="h-10 w-10 text-primary" />,
+    icon: <Truck className="h-10 w-10 text-primary" />,
     title: "Scooter Maintenance",
     description: "Battery issues, wheel replacements, and general tune-ups.",
   },

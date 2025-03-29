@@ -1,14 +1,12 @@
-
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Bike, Scooter, Wrench, Search, Clock, DollarSign, User, MapPin } from "lucide-react";
+import { Bike, Truck, Wrench, Search, Clock, DollarSign, User, MapPin } from "lucide-react";
 import Layout from "@/components/Layout";
 
-// Mock service data
 const mockServices = [
   {
     id: 1,
@@ -95,7 +93,6 @@ const Services = () => {
   const [serviceType, setServiceType] = useState("all");
   const [location, setLocation] = useState("all");
   
-  // Filter services based on search and filters
   const filteredServices = mockServices.filter((service) => {
     const matchesSearch = 
       service.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -118,7 +115,6 @@ const Services = () => {
             Browse available repair services from skilled providers in the ASU community.
           </p>
           
-          {/* Search and Filters */}
           <div className="bg-white p-6 rounded-lg shadow-md">
             <div className="grid md:grid-cols-4 gap-4">
               <div className="relative">
@@ -199,7 +195,7 @@ const Services = () => {
                 <CardContent className="p-4">
                   <div className="flex items-center text-sm text-gray-500 mb-2">
                     {service.type === "bike" && <Bike className="h-4 w-4 mr-1" />}
-                    {service.type === "scooter" && <Scooter className="h-4 w-4 mr-1" />}
+                    {service.type === "scooter" && <Truck className="h-4 w-4 mr-1" />}
                     {service.type === "other" && <Wrench className="h-4 w-4 mr-1" />}
                     <span className="capitalize">{service.type} Service</span>
                   </div>
