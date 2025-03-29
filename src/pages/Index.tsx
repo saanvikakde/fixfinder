@@ -1,3 +1,4 @@
+
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -44,43 +45,19 @@ const services = [
   },
 ];
 
-const testimonials = [
-  {
-    id: 1,
-    name: "Alex Johnson",
-    role: "ASU Engineering Student",
-    content: "Found someone to fix my bike in under an hour. Saved me from missing class!",
-    avatar: "https://i.pravatar.cc/100?img=1",
-  },
-  {
-    id: 2,
-    name: "Sarah Miller",
-    role: "Service Provider",
-    content: "I've been able to help fellow students while earning extra income between classes.",
-    avatar: "https://i.pravatar.cc/100?img=5",
-  },
-  {
-    id: 3,
-    name: "David Thompson",
-    role: "ASU Business Major",
-    content: "Quick and affordable scooter repair right on campus. Highly recommended!",
-    avatar: "https://i.pravatar.cc/100?img=3",
-  },
-];
-
 const Index = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-primary/20 to-blue-100 py-20">
+      <section className="relative bg-secondary py-16">
         <div className="container mx-auto px-4">
           <div className="flex flex-col lg:flex-row items-center">
             <div className="lg:w-1/2 mb-10 lg:mb-0">
-              <h1 className="text-4xl md:text-5xl font-bold mb-6">
+              <h1 className="text-3xl md:text-4xl font-bold mb-6">
                 Student Skills,<br />
                 <span className="text-primary">Campus Connections</span>
               </h1>
-              <p className="text-lg text-gray-700 mb-8 max-w-lg">
+              <p className="text-gray-700 mb-8 max-w-lg">
                 Find affordable services from talented ASU students - from bike repairs and nail art 
                 to tutoring and creative work. Connect with skilled peers near you.
               </p>
@@ -97,18 +74,17 @@ const Index = () => {
               <img 
                 src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158" 
                 alt="Service provider helping with a repair" 
-                className="rounded-lg shadow-xl relative z-10 w-full max-w-lg mx-auto"
+                className="rounded-lg shadow-md relative z-10 w-full max-w-lg mx-auto"
               />
-              <div className="absolute top-10 -right-4 bg-primary/30 w-72 h-72 rounded-full blur-3xl -z-10 animate-float"></div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Search Section */}
-      <section className="py-12 bg-white">
+      <section className="py-8 bg-white">
         <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto bg-white rounded-xl shadow-lg p-6 -mt-16 relative z-20">
+          <div className="max-w-3xl mx-auto bg-white rounded-lg shadow-sm p-6 -mt-12 relative z-20 border border-gray-100">
             <h2 className="text-2xl font-semibold mb-4 text-center">Find the right service quickly</h2>
             <div className="flex flex-col md:flex-row gap-4">
               <div className="relative flex-grow">
@@ -132,7 +108,7 @@ const Index = () => {
       </section>
 
       {/* Services Section */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-muted">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">Our Services</h2>
@@ -142,11 +118,11 @@ const Index = () => {
             </p>
           </div>
           
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-6">
             {services.map((service) => (
-              <Card key={service.id} className="border-none shadow-md hover:shadow-xl transition-shadow">
+              <Card key={service.id} className="border-none shadow-sm hover:shadow-md transition-shadow">
                 <CardContent className="p-6 text-center">
-                  <div className="flex justify-center mb-4">
+                  <div className="flex justify-center mb-4 bg-accent/50 w-16 h-16 rounded-full mx-auto items-center">
                     {service.icon}
                   </div>
                   <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
@@ -156,7 +132,7 @@ const Index = () => {
             ))}
           </div>
           
-          <div className="text-center mt-12">
+          <div className="text-center mt-10">
             <Button size="lg" variant="outline" asChild>
               <Link to="/services">Explore All Services</Link>
             </Button>
@@ -176,7 +152,7 @@ const Index = () => {
           
           <div className="grid md:grid-cols-3 gap-8">
             <div className="text-center">
-              <div className="bg-primary/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="bg-accent/50 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Search className="h-8 w-8 text-primary" />
               </div>
               <h3 className="text-xl font-semibold mb-2">1. Find a Service</h3>
@@ -186,7 +162,7 @@ const Index = () => {
             </div>
             
             <div className="text-center">
-              <div className="bg-primary/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="bg-accent/50 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                 <User className="h-8 w-8 text-primary" />
               </div>
               <h3 className="text-xl font-semibold mb-2">2. Connect</h3>
@@ -196,7 +172,7 @@ const Index = () => {
             </div>
             
             <div className="text-center">
-              <div className="bg-primary/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="bg-accent/50 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Wrench className="h-8 w-8 text-primary" />
               </div>
               <h3 className="text-xl font-semibold mb-2">3. Get Fixed</h3>
@@ -208,41 +184,8 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Testimonials */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4">What People Say</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              Hear from students and service providers in the ASU community
-            </p>
-          </div>
-          
-          <div className="grid md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial) => (
-              <Card key={testimonial.id} className="border-none shadow-md">
-                <CardContent className="p-6">
-                  <p className="text-gray-600 mb-6 italic">"{testimonial.content}"</p>
-                  <div className="flex items-center">
-                    <img 
-                      src={testimonial.avatar} 
-                      alt={testimonial.name} 
-                      className="w-12 h-12 rounded-full mr-4"
-                    />
-                    <div>
-                      <p className="font-semibold">{testimonial.name}</p>
-                      <p className="text-gray-500 text-sm">{testimonial.role}</p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* CTA Section */}
-      <section className="py-20 bg-primary/10">
+      <section className="py-16 bg-secondary">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-6">Ready to join the FixFinder community?</h2>
           <p className="text-gray-600 max-w-2xl mx-auto mb-8">
