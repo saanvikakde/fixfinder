@@ -11,6 +11,13 @@ import SearchSection from "@/components/SearchSection";
 import HowItWorks from "@/components/HowItWorks";
 import CTASection from "@/components/CTASection";
 
+/**
+ * Index Component - Main landing page of the application
+ * 
+ * This component serves as the home page and organizes the layout of various sections
+ * including hero banner, search functionality, service listings, how the platform works,
+ * and call-to-action sections.
+ */
 const Index = () => {
   return (
     <Layout>

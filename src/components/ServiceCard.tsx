@@ -4,6 +4,10 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Bike, Scissors, Pencil, Book, Wrench, Briefcase } from "lucide-react";
 
+/**
+ * Array of service categories offered on the platform
+ * Each service has an id, icon, title, and description
+ */
 const services = [
   {
     id: 1,
@@ -43,10 +47,17 @@ const services = [
   },
 ];
 
+/**
+ * ServiceCard Component - Displays available service categories
+ * 
+ * This component showcases the different types of services available on the platform,
+ * each represented by a card with an icon, title, and brief description.
+ */
 const ServiceCard = () => {
   return (
     <section className="py-16 bg-muted">
       <div className="container mx-auto px-4">
+        {/* Section header */}
         <div className="text-center mb-10">
           <h2 className="text-2xl font-medium mb-2">Services</h2>
           <p className="text-gray-600 max-w-xl mx-auto">
@@ -54,6 +65,7 @@ const ServiceCard = () => {
           </p>
         </div>
         
+        {/* Grid of service category cards */}
         <div className="grid md:grid-cols-3 gap-6">
           {services.map((service) => (
             <Card key={service.id} className="border-none hover:shadow-sm transition-shadow">
@@ -68,6 +80,7 @@ const ServiceCard = () => {
           ))}
         </div>
         
+        {/* Call-to-action button */}
         <div className="text-center mt-8">
           <Button variant="outline" asChild>
             <Link to="/services">Explore All Services</Link>
