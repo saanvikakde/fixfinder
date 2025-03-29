@@ -9,6 +9,9 @@ import Services from "./pages/Services";
 import Providers from "./pages/Providers";
 import About from "./pages/About";
 import NotFound from "./pages/NotFound";
+import SignIn from "./pages/SignIn";
+import SignUp from "./pages/SignUp";
+
 
 const queryClient = new QueryClient();
 
@@ -24,10 +27,13 @@ const App = () => (
           <Route path="/providers" element={<Providers />} />
           <Route path="/about" element={<About />} />
           <Route path="*" element={<NotFound />} />
+          <Route path="/signin" element={<SignIn />} />
+          <Route path="/signup" element={<SignUp />} />
         </Routes>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
+  
 );
 
 export default App;

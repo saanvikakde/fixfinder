@@ -34,7 +34,7 @@ const Navbar = () => {
         
         {/* Authentication buttons */}
         <div className="flex items-center gap-3">
-          <Link to="/login">
+          <Link to="/signin">
             <Button variant="outline" size="sm">Login</Button>
           </Link>
           <Link to="/signup">
