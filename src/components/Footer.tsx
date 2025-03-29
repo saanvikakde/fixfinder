@@ -4,27 +4,22 @@ import { Wrench } from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-50 border-t py-12">
+    <footer className="bg-white border-t py-8">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          <div className="md:col-span-1">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div>
             <Link to="/" className="flex items-center gap-2">
-              <Wrench className="h-6 w-6 text-primary" />
-              <span className="font-bold text-xl">FixFinder</span>
+              <Wrench className="h-5 w-5 text-primary" />
+              <span className="font-medium text-lg">FixFinder</span>
             </Link>
-            <p className="mt-4 text-gray-600">
-              Connecting ASU students with affordable repair services.
+            <p className="mt-3 text-sm text-gray-600">
+              Connecting ASU students with services.
             </p>
           </div>
           
           <div>
-            <h3 className="font-medium text-lg mb-4">Quick Links</h3>
-            <ul className="space-y-2">
-              <li>
-                <Link to="/" className="text-gray-600 hover:text-primary transition-colors">
-                  Home
-                </Link>
-              </li>
+            <h3 className="font-medium text-base mb-3">Services</h3>
+            <ul className="space-y-2 text-sm">
               <li>
                 <Link to="/services" className="text-gray-600 hover:text-primary transition-colors">
                   Find Services
@@ -35,41 +30,20 @@ const Footer = () => {
                   Service Providers
                 </Link>
               </li>
-            </ul>
-          </div>
-          
-          <div>
-            <h3 className="font-medium text-lg mb-4">For Providers</h3>
-            <ul className="space-y-2">
-              <li>
-                <Link to="/dashboard" className="text-gray-600 hover:text-primary transition-colors">
-                  Provider Dashboard
-                </Link>
-              </li>
-              <li>
-                <Link to="/add-service" className="text-gray-600 hover:text-primary transition-colors">
-                  Add a Service
-                </Link>
-              </li>
-              <li>
-                <Link to="/tips" className="text-gray-600 hover:text-primary transition-colors">
-                  Tips for Success
-                </Link>
-              </li>
-            </ul>
-          </div>
-          
-          <div>
-            <h3 className="font-medium text-lg mb-4">Support</h3>
-            <ul className="space-y-2">
-              <li>
-                <Link to="/contact" className="text-gray-600 hover:text-primary transition-colors">
-                  Contact Us
-                </Link>
-              </li>
               <li>
                 <Link to="/about" className="text-gray-600 hover:text-primary transition-colors">
                   About
+                </Link>
+              </li>
+            </ul>
+          </div>
+          
+          <div>
+            <h3 className="font-medium text-base mb-3">Support</h3>
+            <ul className="space-y-2 text-sm">
+              <li>
+                <Link to="/contact" className="text-gray-600 hover:text-primary transition-colors">
+                  Contact Us
                 </Link>
               </li>
               <li>
@@ -81,7 +55,7 @@ const Footer = () => {
           </div>
         </div>
         
-        <div className="border-t mt-8 pt-8 text-center text-gray-500">
+        <div className="border-t mt-6 pt-6 text-center text-sm text-gray-500">
           <p>&copy; {new Date().getFullYear()} FixFinder. All rights reserved.</p>
         </div>
       </div>
