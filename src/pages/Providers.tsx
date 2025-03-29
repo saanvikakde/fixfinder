@@ -1,10 +1,11 @@
+
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { User, MapPin, Star, Search, Bike, Truck, Wrench } from "lucide-react";
+import { User, MapPin, Star, Search, Bike, Truck, Wrench, Scissors, Pencil, Book, Briefcase } from "lucide-react";
 import Layout from "@/components/Layout";
 
 const mockProviders = [
@@ -18,7 +19,8 @@ const mockProviders = [
     skills: ["Bike Repairs", "Tire Replacement", "Brake Adjustment"],
     serviceCount: 3,
     avatar: "https://i.pravatar.cc/150?img=11",
-    serviceTypes: ["bike"],
+    serviceTypes: ["repairs"],
+    specialties: ["bike"],
   },
   {
     id: 2,
@@ -30,7 +32,8 @@ const mockProviders = [
     skills: ["Scooter Repair", "Battery Replacement", "Electronics"],
     serviceCount: 4,
     avatar: "https://i.pravatar.cc/150?img=5",
-    serviceTypes: ["scooter", "other"],
+    serviceTypes: ["repairs"],
+    specialties: ["scooter", "electronics"],
   },
   {
     id: 3,
@@ -42,43 +45,73 @@ const mockProviders = [
     skills: ["Bike Tune-ups", "Chain Repair", "Gear Adjustment"],
     serviceCount: 2,
     avatar: "https://i.pravatar.cc/150?img=3",
-    serviceTypes: ["bike"],
+    serviceTypes: ["repairs"],
+    specialties: ["bike"],
   },
   {
     id: 4,
-    name: "Aisha Johnson",
-    bio: "Computer science major specializing in electronics repair. Can fix most charging ports, screens, and more.",
-    rating: 4.6,
-    reviews: 31,
-    location: "Tempe Marketplace area",
-    skills: ["Electronics Repair", "Screen Replacement", "Battery Issues"],
-    serviceCount: 3,
+    name: "Sofia Garcia",
+    bio: "Cosmetology student specializing in nail art, manicures, and pedicures. Professional quality at student prices.",
+    rating: 4.9,
+    reviews: 42,
+    location: "South Campus",
+    skills: ["Gel Nails", "Nail Art", "Manicures", "Pedicures"],
+    serviceCount: 2,
     avatar: "https://i.pravatar.cc/150?img=9",
-    serviceTypes: ["other"],
+    serviceTypes: ["beauty"],
+    specialties: ["nails"],
   },
   {
     id: 5,
-    name: "Carlos Rodriguez",
-    bio: "Transportation design student with expertise in scooter and skateboard repairs. Quick turnaround times.",
-    rating: 4.5,
-    reviews: 12,
-    location: "South Campus",
-    skills: ["Scooter Repair", "Wheel Replacement", "Motor Issues"],
-    serviceCount: 2,
-    avatar: "https://i.pravatar.cc/150?img=12",
-    serviceTypes: ["scooter"],
-  },
-  {
-    id: 6,
     name: "Emma Stevens",
-    bio: "Architecture student offering furniture assembly and repair services. Skilled with various tools and materials.",
+    bio: "Fashion design student offering sewing, alterations, and custom clothing repairs. Quick and detail-oriented.",
     rating: 5.0,
     reviews: 15,
     location: "Campus-wide",
-    skills: ["Furniture Assembly", "Small Repairs", "Installation"],
-    serviceCount: 1,
+    skills: ["Clothing Alterations", "Sewing Repairs", "Custom Designs", "Hemming"],
+    serviceCount: 3,
     avatar: "https://i.pravatar.cc/150?img=8",
-    serviceTypes: ["other"],
+    serviceTypes: ["creative"],
+    specialties: ["sewing"],
+  },
+  {
+    id: 6,
+    name: "Alex Rodriguez",
+    bio: "Engineering major offering tutoring in calculus, physics, and other STEM subjects. Patient and thorough teaching style.",
+    rating: 4.8,
+    reviews: 23,
+    location: "Library or Engineering buildings",
+    skills: ["Calculus", "Physics", "Engineering", "STEM Tutoring"],
+    serviceCount: 1,
+    avatar: "https://i.pravatar.cc/150?img=12",
+    serviceTypes: ["academic"],
+    specialties: ["tutoring"],
+  },
+  {
+    id: 7,
+    name: "Taylor Williams",
+    bio: "Business major specializing in resume design, cover letters, and job application assistance. Career fair prep available.",
+    rating: 4.7,
+    reviews: 18,
+    location: "Business building or online",
+    skills: ["Resume Design", "Cover Letters", "Interview Prep", "LinkedIn Optimization"],
+    serviceCount: 2,
+    avatar: "https://i.pravatar.cc/150?img=7",
+    serviceTypes: ["career"],
+    specialties: ["resume"],
+  },
+  {
+    id: 8,
+    name: "Aisha Johnson",
+    bio: "Computer science major specializing in electronics repair and tech tutoring. Can fix most charging ports, screens and more.",
+    rating: 4.6,
+    reviews: 31,
+    location: "Tempe Marketplace area",
+    skills: ["Electronics Repair", "Screen Replacement", "Computer Troubleshooting"],
+    serviceCount: 3,
+    avatar: "https://i.pravatar.cc/150?img=10",
+    serviceTypes: ["repairs"],
+    specialties: ["electronics"],
   },
 ];
 
@@ -99,6 +132,38 @@ const Providers = () => {
     
     return matchesSearch && matchesType && matchesLocation;
   });
+
+  // Function to get the appropriate icon based on service type
+  const getServiceTypeIcon = (type, specialty, size = 3) => {
+    switch (type) {
+      case 'repairs':
+        return specialty === 'bike' ? <Bike className={`h-${size} w-${size} mr-1`} /> : 
+               specialty === 'scooter' ? <Truck className={`h-${size} w-${size} mr-1`} /> :
+               <Wrench className={`h-${size} w-${size} mr-1`} />;
+      case 'beauty':
+        return <Scissors className={`h-${size} w-${size} mr-1`} />;
+      case 'creative':
+        return <Pencil className={`h-${size} w-${size} mr-1`} />;
+      case 'academic':
+        return <Book className={`h-${size} w-${size} mr-1`} />;
+      case 'career':
+        return <Briefcase className={`h-${size} w-${size} mr-1`} />;
+      default:
+        return <Wrench className={`h-${size} w-${size} mr-1`} />;
+    }
+  };
+
+  // Function to get service type display name
+  const getServiceTypeName = (type) => {
+    switch (type) {
+      case 'repairs': return 'Repairs';
+      case 'beauty': return 'Beauty';
+      case 'creative': return 'Creative';
+      case 'academic': return 'Academic';
+      case 'career': return 'Career';
+      default: return type;
+    }
+  };
 
   return (
     <Layout>
@@ -128,9 +193,11 @@ const Providers = () => {
                   </SelectTrigger>
                   <SelectContent>
                     <SelectItem value="all">All Specializations</SelectItem>
-                    <SelectItem value="bike">Bike Specialist</SelectItem>
-                    <SelectItem value="scooter">Scooter Specialist</SelectItem>
-                    <SelectItem value="other">Other Services</SelectItem>
+                    <SelectItem value="repairs">Repairs & Fixes</SelectItem>
+                    <SelectItem value="beauty">Beauty & Styling</SelectItem>
+                    <SelectItem value="creative">Creative Services</SelectItem>
+                    <SelectItem value="academic">Academic Help</SelectItem>
+                    <SelectItem value="career">Career Services</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
@@ -206,21 +273,12 @@ const Providers = () => {
                   <div className="mb-4">
                     <h4 className="font-medium text-sm mb-2">Specializations:</h4>
                     <div className="flex flex-wrap gap-1">
-                      {provider.serviceTypes.includes("bike") && (
-                        <span className="bg-primary/10 text-primary px-2 py-1 rounded-full text-xs flex items-center">
-                          <Bike className="h-3 w-3 mr-1" /> Bike
+                      {provider.serviceTypes.map((type, index) => (
+                        <span key={index} className="bg-primary/10 text-primary px-2 py-1 rounded-full text-xs flex items-center">
+                          {getServiceTypeIcon(type, provider.specialties[0])} 
+                          {getServiceTypeName(type)}
                         </span>
-                      )}
-                      {provider.serviceTypes.includes("scooter") && (
-                        <span className="bg-primary/10 text-primary px-2 py-1 rounded-full text-xs flex items-center">
-                          <Truck className="h-3 w-3 mr-1" /> Scooter
-                        </span>
-                      )}
-                      {provider.serviceTypes.includes("other") && (
-                        <span className="bg-primary/10 text-primary px-2 py-1 rounded-full text-xs flex items-center">
-                          <Wrench className="h-3 w-3 mr-1" /> Other
-                        </span>
-                      )}
+                      ))}
                     </div>
                   </div>
                   

@@ -1,10 +1,11 @@
+
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Bike, Truck, Wrench, Search, Clock, DollarSign, User, MapPin } from "lucide-react";
+import { Bike, Truck, Wrench, Search, Clock, DollarSign, User, MapPin, Scissors, Pencil, Book, Briefcase } from "lucide-react";
 import Layout from "@/components/Layout";
 
 const mockServices = [
@@ -18,7 +19,8 @@ const mockServices = [
     price: "$15-25",
     location: "Near Memorial Union",
     availability: "Weekdays after 3PM",
-    type: "bike",
+    type: "repairs",
+    category: "bike",
     image: "https://images.unsplash.com/photo-1605278182227-43ef32b9923c?auto=format&fit=crop&q=80&w=500",
   },
   {
@@ -31,7 +33,8 @@ const mockServices = [
     price: "$30-60",
     location: "Engineering Center",
     availability: "Weekends, some evenings",
-    type: "scooter",
+    type: "repairs",
+    category: "scooter",
     image: "https://images.unsplash.com/photo-1566843972625-a3634d31c13a?auto=format&fit=crop&q=80&w=500",
   },
   {
@@ -44,7 +47,8 @@ const mockServices = [
     price: "$25-40",
     location: "West Campus",
     availability: "Daily: 4PM-8PM",
-    type: "bike",
+    type: "repairs",
+    category: "bike",
     image: "https://images.unsplash.com/photo-1593083296171-e89f67687e24?auto=format&fit=crop&q=80&w=500",
   },
   {
@@ -57,34 +61,65 @@ const mockServices = [
     price: "$20-50",
     location: "Tempe Marketplace area",
     availability: "Mon/Wed/Fri evenings",
-    type: "other",
+    type: "repairs",
+    category: "electronics",
     image: "https://images.unsplash.com/photo-1597424216844-05e50db5885e?auto=format&fit=crop&q=80&w=500",
   },
   {
     id: 5,
-    title: "Scooter Wheel Repair",
-    description: "Replace or repair damaged scooter wheels for a smooth ride.",
-    provider: "Carlos Rodriguez",
-    providerRating: 4.5,
-    providerReviews: 12,
-    price: "$15-30",
+    title: "Gel Nail Art & Manicures",
+    description: "Professional quality gel nail art and manicures at student-friendly prices.",
+    provider: "Sofia Garcia",
+    providerRating: 4.9,
+    providerReviews: 42,
+    price: "$20-35",
     location: "South Campus",
-    availability: "Weekends only",
-    type: "scooter",
-    image: "https://images.unsplash.com/photo-1542140846-0e69e1bf32a5?auto=format&fit=crop&q=80&w=500",
+    availability: "Weekends, Thursday evenings",
+    type: "beauty",
+    category: "nails",
+    image: "https://images.unsplash.com/photo-1632344415012-80ceae9d4936?auto=format&fit=crop&q=80&w=500",
   },
   {
     id: 6,
-    title: "Furniture Assembly",
-    description: "Need help putting together that new desk or bookshelf? I can help with assembly and installation.",
+    title: "Custom Clothing Alterations",
+    description: "Skilled with sewing and alterations. Can hem pants, take in shirts, repair tears, and more.",
     provider: "Emma Stevens",
     providerRating: 5.0,
     providerReviews: 15,
-    price: "$20-40",
+    price: "$10-40",
     location: "Campus-wide",
     availability: "Evenings and weekends",
-    type: "other",
-    image: "https://images.unsplash.com/photo-1595426496137-abcce8f86887?auto=format&fit=crop&q=80&w=500",
+    type: "creative",
+    category: "sewing",
+    image: "https://images.unsplash.com/photo-1590333748338-d629e4564ad9?auto=format&fit=crop&q=80&w=500",
+  },
+  {
+    id: 7,
+    title: "Calculus & Physics Tutoring",
+    description: "Engineering student offering tutoring in calculus, physics, and other STEM subjects.",
+    provider: "Alex Rodriguez",
+    providerRating: 4.8,
+    providerReviews: 23,
+    price: "$25/hour",
+    location: "Library or Engineering buildings",
+    availability: "Weekday evenings",
+    type: "academic",
+    category: "tutoring",
+    image: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&q=80&w=500",
+  },
+  {
+    id: 8,
+    title: "Resume Design & Optimization",
+    description: "Business major offering professional resume design and optimization for job applications.",
+    provider: "Taylor Williams",
+    providerRating: 4.7,
+    providerReviews: 18,
+    price: "$30-50",
+    location: "Business building or online",
+    availability: "Flexible scheduling",
+    type: "career",
+    category: "resume",
+    image: "https://images.unsplash.com/photo-1586281380349-632531db7ed4?auto=format&fit=crop&q=80&w=500",
   },
 ];
 
@@ -97,7 +132,8 @@ const Services = () => {
     const matchesSearch = 
       service.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
       service.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      service.provider.toLowerCase().includes(searchTerm.toLowerCase());
+      service.provider.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      service.category.toLowerCase().includes(searchTerm.toLowerCase());
       
     const matchesType = serviceType === "all" || service.type === serviceType;
     
@@ -106,13 +142,33 @@ const Services = () => {
     return matchesSearch && matchesType && matchesLocation;
   });
 
+  // Function to get the appropriate icon based on service type
+  const getServiceIcon = (type, category, size = 4) => {
+    switch (type) {
+      case 'repairs':
+        return category === 'bike' ? <Bike className={`h-${size} w-${size} mr-1`} /> : 
+               category === 'scooter' ? <Truck className={`h-${size} w-${size} mr-1`} /> :
+               <Wrench className={`h-${size} w-${size} mr-1`} />;
+      case 'beauty':
+        return <Scissors className={`h-${size} w-${size} mr-1`} />;
+      case 'creative':
+        return <Pencil className={`h-${size} w-${size} mr-1`} />;
+      case 'academic':
+        return <Book className={`h-${size} w-${size} mr-1`} />;
+      case 'career':
+        return <Briefcase className={`h-${size} w-${size} mr-1`} />;
+      default:
+        return <Wrench className={`h-${size} w-${size} mr-1`} />;
+    }
+  };
+
   return (
     <Layout>
       <div className="bg-gradient-to-r from-primary/20 to-blue-100 py-12">
         <div className="container mx-auto px-4">
           <h1 className="text-3xl font-bold mb-6">Find Services</h1>
           <p className="text-gray-700 mb-8 max-w-2xl">
-            Browse available repair services from skilled providers in the ASU community.
+            Browse available services from skilled providers in the ASU community.
           </p>
           
           <div className="bg-white p-6 rounded-lg shadow-md">
@@ -134,9 +190,11 @@ const Services = () => {
                   </SelectTrigger>
                   <SelectContent>
                     <SelectItem value="all">All Types</SelectItem>
-                    <SelectItem value="bike">Bike Repair</SelectItem>
-                    <SelectItem value="scooter">Scooter Repair</SelectItem>
-                    <SelectItem value="other">Other Services</SelectItem>
+                    <SelectItem value="repairs">Repairs & Fixes</SelectItem>
+                    <SelectItem value="beauty">Beauty & Styling</SelectItem>
+                    <SelectItem value="creative">Creative Services</SelectItem>
+                    <SelectItem value="academic">Academic Help</SelectItem>
+                    <SelectItem value="career">Career Services</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
@@ -194,10 +252,8 @@ const Services = () => {
                 />
                 <CardContent className="p-4">
                   <div className="flex items-center text-sm text-gray-500 mb-2">
-                    {service.type === "bike" && <Bike className="h-4 w-4 mr-1" />}
-                    {service.type === "scooter" && <Truck className="h-4 w-4 mr-1" />}
-                    {service.type === "other" && <Wrench className="h-4 w-4 mr-1" />}
-                    <span className="capitalize">{service.type} Service</span>
+                    {getServiceIcon(service.type, service.category)}
+                    <span className="capitalize">{service.category} Service</span>
                   </div>
                   <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
                   <p className="text-gray-600 text-sm mb-4">{service.description}</p>

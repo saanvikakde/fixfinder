@@ -2,27 +2,45 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent } from "@/components/ui/card";
-import { Wrench, Bike, Truck, User, Search, MapPin } from "lucide-react";
+import { Wrench, Bike, Truck, User, Search, MapPin, Scissors, Pencil, Book, Briefcase } from "lucide-react";
 import Layout from "@/components/Layout";
 
 const services = [
   {
     id: 1,
     icon: <Bike className="h-10 w-10 text-primary" />,
-    title: "Bike Repairs",
+    title: "Bike & Scooter Repairs",
     description: "Flat tires, chain issues, brake adjustments and more.",
   },
   {
     id: 2,
-    icon: <Truck className="h-10 w-10 text-primary" />,
-    title: "Scooter Maintenance",
-    description: "Battery issues, wheel replacements, and general tune-ups.",
+    icon: <Scissors className="h-10 w-10 text-primary" />,
+    title: "Beauty & Styling",
+    description: "Haircuts, manicures, nail art, makeup and fashion advice.",
   },
   {
     id: 3,
+    icon: <Pencil className="h-10 w-10 text-primary" />,
+    title: "Creative Services",
+    description: "Sewing, art commissions, graphic design, photography and more.",
+  },
+  {
+    id: 4,
+    icon: <Book className="h-10 w-10 text-primary" />,
+    title: "Academic Help",
+    description: "Tutoring, essay editing, research assistance and study groups.",
+  },
+  {
+    id: 5,
     icon: <Wrench className="h-10 w-10 text-primary" />,
     title: "General Fixes",
-    description: "Other repairs like electronics, furniture assembly and more.",
+    description: "Electronics repair, furniture assembly and other quick fixes.",
+  },
+  {
+    id: 6,
+    icon: <Briefcase className="h-10 w-10 text-primary" />,
+    title: "Career Services",
+    description: "Resume writing, interview prep, portfolio reviews and career advice.",
   },
 ];
 
@@ -59,12 +77,12 @@ const Index = () => {
           <div className="flex flex-col lg:flex-row items-center">
             <div className="lg:w-1/2 mb-10 lg:mb-0">
               <h1 className="text-4xl md:text-5xl font-bold mb-6">
-                Quick Repairs,<br />
-                <span className="text-primary">Local Connections</span>
+                Student Skills,<br />
+                <span className="text-primary">Campus Connections</span>
               </h1>
               <p className="text-lg text-gray-700 mb-8 max-w-lg">
-                Find affordable repair services from skilled ASU students and local 
-                providers for your bike, scooter, or other quick fixes.
+                Find affordable services from talented ASU students - from bike repairs and nail art 
+                to tutoring and creative work. Connect with skilled peers near you.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button size="lg" asChild>
@@ -96,7 +114,7 @@ const Index = () => {
               <div className="relative flex-grow">
                 <Search className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
                 <Input 
-                  placeholder="What needs fixing?" 
+                  placeholder="What do you need help with?" 
                   className="pl-10 h-12"
                 />
               </div>
@@ -119,7 +137,7 @@ const Index = () => {
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">Our Services</h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              From quick fixes to more complex repairs, connect with 
+              From repairs to beauty services, academic help to creative work, connect with 
               skilled providers in the ASU community.
             </p>
           </div>
@@ -152,7 +170,7 @@ const Index = () => {
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">How It Works</h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Getting your items fixed is easy and convenient with FixFinder
+              Getting the help you need is easy and convenient with FixFinder
             </p>
           </div>
           
@@ -228,7 +246,7 @@ const Index = () => {
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-6">Ready to join the FixFinder community?</h2>
           <p className="text-gray-600 max-w-2xl mx-auto mb-8">
-            Whether you need a quick fix or want to offer your skills, FixFinder connects the ASU community.
+            Whether you need help with a task or want to offer your skills, FixFinder connects the ASU community.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" asChild>
