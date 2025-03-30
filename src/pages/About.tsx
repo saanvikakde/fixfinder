@@ -10,7 +10,7 @@ const About = () => {
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-4xl font-bold mb-6">About FixFinder</h1>
           <p className="text-black max-w-2xl mx-auto">
-            Connecting ASU students with affordable and accessible repair services
+            Connecting ASU students with affordable and accessible everyday services.
           </p>
         </div>
       </div>
@@ -21,11 +21,11 @@ const About = () => {
             <h2 className="text-3xl font-bold mb-6">Our Mission</h2>
             <p className="text-white-700 mb-4">
               FixFinder was created to solve a common problem at ASU: access to affordable, 
-              convenient repair services for bikes, scooters, and other everyday items.
+              convenient repair services or creative gigs like repairing bikes, scooters, tailoring, crochet, etc.
             </p>
             <p className="text-white-700 mb-4">
               We believe that students shouldn't have to pay expensive shop rates or travel 
-              far from campus to get quick repairs. At the same time, we know that many 
+              far from campus to get quick repairs or services. At the same time, we know that many 
               students have valuable skills they could share with the community.
             </p>
             <p className="text-white-700">
@@ -36,7 +36,7 @@ const About = () => {
           </div>
           <div className="relative">
             <img 
-              src="/logo5.png"
+              src="/logo10.png.jpg"
               alt="Student fixing a device" 
               className="rounded-lg shadow-xl w-full"
             />
@@ -74,7 +74,7 @@ const About = () => {
               </div>
               <h3 className="text-xl font-semibold mb-2">Specialized</h3>
               <p className="text-white-600">
-                Focus on common student needs like bike and scooter repairs.
+                Focus on common student needs like bike and scooter repairs, tailoring and other creative gigs.
               </p>
             </div>
             
@@ -96,7 +96,7 @@ const About = () => {
             <div className="mb-6">
               <h3 className="text-lg font-semibold mb-2">How do I find a service?</h3>
               <p className="text-white-600">
-                Browse our services page, filter by type of repair, and contact the provider directly through our platform.
+                Browse our services page, filter by type of repair or service, and contact the provider directly through our platform.
               </p>
             </div>
             
@@ -110,7 +110,7 @@ const About = () => {
             <div className="mb-6">
               <h3 className="text-lg font-semibold mb-2">Is there any fee to use the platform?</h3>
               <p className="text-white-600">
-                FixFinder is completely free for ASU students and community members to use.
+                FixFinder is completely free for ASU students and community members to purchase but there is a flat fee for sellers.
               </p>
             </div>
             
@@ -179,11 +179,11 @@ const About = () => {
 
             <div className="p-4">
               <img 
-                src="https://i.pravatar.cc/200?img=3" 
+                src="/claire3.png" 
                 alt="Team Member" 
                 className="w-40 h-40 rounded-full mx-auto mb-4 object-cover"
               />
-              <h3 className="text-xl font-semibold">Clair</h3>
+              <h3 className="text-xl font-semibold">Claire Hsu</h3>
               <p className="text-primary">Co-Founder</p>
               <p className="text-gray-600 mt-2">
                

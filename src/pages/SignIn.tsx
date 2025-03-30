@@ -71,7 +71,7 @@ const SignIn = () => {
           {success && <p className="success-message">{success}</p>} {/* success message */}
           {error && <p className="error-message">{error}</p>}       {/* error message */}
 
-          <p className="signup-link">
+          <p className="signup-link text-black">
             Don’t have an account?{" "}
             <Link to="/signup" className="text-primary hover:underline">
               Sign up.

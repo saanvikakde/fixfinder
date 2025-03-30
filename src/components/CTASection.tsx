@@ -10,11 +10,11 @@ import { Button } from "@/components/ui/button";
  */
 const CTASection = () => {
   return (
-    <section className="py-16 bg-black">
+    <section className="py-16 bg-white">
       <div className="container mx-auto px-4 text-center">
         {/* Section header */}
-        <h2 className="text-2xl font-medium mb-4">Join the community</h2>
-        <p className="text-white-600 max-w-xl mx-auto mb-6">
+        <h2 className="text-2xl text-black font-medium mb-4">Join the community</h2>
+        <p className="text-black max-w-xl mx-auto mb-6">
           Connect with the ASU community for services you need
         </p>
         
@@ -23,7 +23,7 @@ const CTASection = () => {
           <Button size="lg" asChild>
             <Link to="/signup">Sign Up</Link>
           </Button>
-          <Button size="lg" variant="outline" asChild>
+          <Button size="lg"  asChild>
             <Link to="/services">Browse Services</Link>
           </Button>
         </div>
