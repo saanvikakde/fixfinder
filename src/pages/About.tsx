@@ -179,11 +179,11 @@ const About = () => {
 
             <div className="p-4">
               <img 
-                src="https://i.pravatar.cc/200?img=3" 
+                src="/claire3.png" 
                 alt="Team Member" 
                 className="w-40 h-40 rounded-full mx-auto mb-4 object-cover"
               />
-              <h3 className="text-xl font-semibold">Clair</h3>
+              <h3 className="text-xl font-semibold">Claire Hsu</h3>
               <p className="text-primary">Co-Founder</p>
               <p className="text-gray-600 mt-2">
                
