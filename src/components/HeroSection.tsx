@@ -31,7 +31,7 @@ const HeroSection = () => {
         {/* Image Section - Right */}
         <div className="flex-shrink-0">
           <img
-            src="/logo5.png"
+            src="/logo10.png.jpg"
             alt="Students collaborating"
             className="hero-image"
           />

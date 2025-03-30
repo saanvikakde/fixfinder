@@ -14,7 +14,7 @@ const HowItWorks = () => {
         {/* Section header */}
         <div className="text-center mb-10">
           <h2 className="text-2xl font-medium mb-2">How It Works</h2>
-          <p className="text-gray-600 max-w-xl mx-auto">
+          <p className="text-white-600 max-w-xl mx-auto">
             Getting the help you need is simple
           </p>
         </div>
@@ -27,7 +27,7 @@ const HowItWorks = () => {
               <Search className="h-6 w-6 text-primary" />
             </div>
             <h3 className="text-lg font-medium mb-1">1. Find</h3>
-            <p className="text-gray-600 text-sm">
+            <p className="text-white-600 text-sm">
               Browse available services or search for specific help
             </p>
           </div>
@@ -38,7 +38,7 @@ const HowItWorks = () => {
               <User className="h-6 w-6 text-primary" />
             </div>
             <h3 className="text-lg font-medium mb-1">2. Connect</h3>
-            <p className="text-gray-600 text-sm">
+            <p className="text-white-600 text-sm">
               Message the provider to discuss details
             </p>
           </div>
@@ -49,7 +49,7 @@ const HowItWorks = () => {
               <Wrench className="h-6 w-6 text-primary" />
             </div>
             <h3 className="text-lg font-medium mb-1">3. Get Help</h3>
-            <p className="text-gray-600 text-sm">
+            <p className="text-white-600 text-sm">
               Meet with your provider and get your task done
             </p>
           </div>

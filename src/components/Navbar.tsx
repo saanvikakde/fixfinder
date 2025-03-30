@@ -34,18 +34,18 @@ const Navbar = () => {
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2">
           <Wrench className="h-5 w-5 text-primary" />
-          <span className="font-medium">FixFinder</span>
+          <span className="font-medium text-black">FixFinder</span>
         </Link>
 
         {/* Nav links */}
         <nav className="hidden md:flex items-center gap-6">
-          <Link to="/services" className="text-gray-600 hover:text-primary transition-colors text-sm">
+          <Link to="/services" className="text-black hover:text-primary transition-colors text-sm">
             Services
           </Link>
-          <Link to="/providers" className="text-gray-600 hover:text-primary transition-colors text-sm">
+          <Link to="/providers" className="text-black hover:text-primary transition-colors text-sm">
             Providers
           </Link>
-          <Link to="/about" className="text-gray-600 hover:text-primary transition-colors text-sm">
+          <Link to="/about" className="text-black hover:text-primary transition-colors text-sm">
             About
           </Link>
         </nav>
@@ -60,14 +60,14 @@ const Navbar = () => {
                     .slice(1)}`
                 : "My Profile"}
             </span>
-            <Button variant="outline" size="sm" onClick={() => setShowConfirmLogout(true)}>
+            <Button size="sm" onClick={() => setShowConfirmLogout(true)}>
               Logout
             </Button>
           </div>
         ) : (
           <div className="flex items-center gap-3">
             <Link to="/signin">
-              <Button variant="outline" size="sm">Login</Button>
+              <Button size="sm">Login</Button>
             </Link>
             <Link to="/signup">
               <Button size="sm">Sign Up</Button>

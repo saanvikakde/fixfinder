@@ -167,10 +167,10 @@ const Providers = () => {
 
   return (
     <Layout>
-      <div className="bg-gradient-to-r from-primary/20 to-blue-100 py-12">
+      <div className="bg-black from-primary/20 to-blue-100 py-12">
         <div className="container mx-auto px-4">
           <h1 className="text-3xl font-bold mb-6">Service Providers</h1>
-          <p className="text-gray-700 mb-8 max-w-2xl">
+          <p className="text-white-700 mb-8 max-w-2xl">
             Connect with skilled service providers in the ASU community.
           </p>
           
@@ -232,7 +232,7 @@ const Providers = () => {
             {filteredProviders.length} Providers Available
           </h2>
           <Select defaultValue="rating">
-            <SelectTrigger className="w-[180px]">
+            <SelectTrigger className="w-[180px] text-black">
               <SelectValue placeholder="Sort by" />
             </SelectTrigger>
             <SelectContent>
@@ -299,9 +299,12 @@ const Providers = () => {
                     </span>
                     <div className="space-x-2">
                       <Button variant="outline" size="sm" asChild>
-                        <Link to={`/provider/${provider.id}`}>View Profile</Link>
+                        <Link to={`/*`}>View Profile</Link>
                       </Button>
-                      <Button size="sm">Contact</Button>
+                      <Button size="sm">
+                      <Link to={`/*`}>Contact</Link>
+
+                      </Button>
                     </div>
                   </div>
                 </CardContent>

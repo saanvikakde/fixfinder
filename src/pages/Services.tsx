@@ -164,10 +164,10 @@ const Services = () => {
 
   return (
     <Layout>
-      <div className="bg-gradient-to-r from-primary/20 to-blue-100 py-12">
+      <div className="bg-black from-primary/20 to-blue-100 py-12">
         <div className="container mx-auto px-4">
           <h1 className="text-3xl font-bold mb-6">Find Services</h1>
-          <p className="text-gray-700 mb-8 max-w-2xl">
+          <p className="text-white-700 mb-8 max-w-2xl">
             Browse available services from skilled providers in the ASU community.
           </p>
           
@@ -229,7 +229,7 @@ const Services = () => {
             {filteredServices.length} Services Available
           </h2>
           <Select defaultValue="recommended">
-            <SelectTrigger className="w-[180px]">
+            <SelectTrigger className="w-[180px] text-black">
               <SelectValue placeholder="Sort by" />
             </SelectTrigger>
             <SelectContent>
