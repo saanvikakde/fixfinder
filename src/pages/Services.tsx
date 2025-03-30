@@ -21,7 +21,7 @@ const mockServices = [
     availability: "Weekdays after 3PM",
     type: "repairs",
     category: "bike",
-    image: "https://images.unsplash.com/photo-1605278182227-43ef32b9923c?auto=format&fit=crop&q=80&w=500",
+    image: "/bikeimg.webp",
   },
   {
     id: 2,
@@ -35,7 +35,7 @@ const mockServices = [
     availability: "Weekends, some evenings",
     type: "repairs",
     category: "scooter",
-    image: "https://images.unsplash.com/photo-1566843972625-a3634d31c13a?auto=format&fit=crop&q=80&w=500",
+    image: "/scooter5.png",
   },
   {
     id: 3,
@@ -49,7 +49,7 @@ const mockServices = [
     availability: "Daily: 4PM-8PM",
     type: "repairs",
     category: "bike",
-    image: "https://images.unsplash.com/photo-1593083296171-e89f67687e24?auto=format&fit=crop&q=80&w=500",
+    image: "/tuneup.webp",
   },
   {
     id: 4,
@@ -63,7 +63,7 @@ const mockServices = [
     availability: "Mon/Wed/Fri evenings",
     type: "repairs",
     category: "electronics",
-    image: "https://images.unsplash.com/photo-1597424216844-05e50db5885e?auto=format&fit=crop&q=80&w=500",
+    image: "/laptop.jpg",
   },
   {
     id: 5,
@@ -77,7 +77,7 @@ const mockServices = [
     availability: "Weekends, Thursday evenings",
     type: "beauty",
     category: "nails",
-    image: "https://images.unsplash.com/photo-1632344415012-80ceae9d4936?auto=format&fit=crop&q=80&w=500",
+    image: "/nails.png",
   },
   {
     id: 6,
@@ -91,7 +91,7 @@ const mockServices = [
     availability: "Evenings and weekends",
     type: "creative",
     category: "sewing",
-    image: "https://images.unsplash.com/photo-1590333748338-d629e4564ad9?auto=format&fit=crop&q=80&w=500",
+    image: "/tailor.png",
   },
   {
     id: 7,

@@ -11,14 +11,14 @@ import { Search, MapPin } from "lucide-react";
  */
 const SearchSection = () => {
   return (
-    <section className="py-8 bg-white">
+    <section className="py-8 bg-black">
       <div className="container mx-auto px-4">
         {/* Search panel positioned with negative margin for overlap effect */}
-        <div className="max-w-3xl mx-auto bg-white p-6 -mt-8 relative z-20 border-b">
+        <div className="max-w-3xl mx-auto bg-black p-6 -mt-8 relative z-20 border-b">
           <div className="flex flex-col md:flex-row gap-4">
             {/* Service search input with icon */}
             <div className="relative flex-grow">
-              <Search className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
+              <Search className="absolute left-3 top-3 h-5 w-5 text-black" />
               <Input 
                 placeholder="What do you need help with?" 
                 className="pl-10 h-12"
