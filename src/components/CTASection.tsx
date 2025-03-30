@@ -10,11 +10,11 @@ import { Button } from "@/components/ui/button";
  */
 const CTASection = () => {
   return (
-    <section className="py-16 bg-secondary">
+    <section className="py-16 bg-black">
       <div className="container mx-auto px-4 text-center">
         {/* Section header */}
         <h2 className="text-2xl font-medium mb-4">Join the community</h2>
-        <p className="text-gray-600 max-w-xl mx-auto mb-6">
+        <p className="text-white-600 max-w-xl mx-auto mb-6">
           Connect with the ASU community for services you need
         </p>
         

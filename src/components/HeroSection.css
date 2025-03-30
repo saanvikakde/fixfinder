@@ -1,0 +1,12 @@
+.hero-image {
+    width: 850px;             /* Set a specific width */
+    height: auto;
+    margin-top: 1px;
+    margin-left: 120px;
+    margin-right: 300px;
+    transform: translateY(10px);
+    
+    border-radius: 16px;
+    
+  }
+  

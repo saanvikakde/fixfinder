@@ -55,12 +55,12 @@ const services = [
  */
 const ServiceCard = () => {
   return (
-    <section className="py-16 bg-muted">
+    <section className="py-16 bg-black text-white">
       <div className="container mx-auto px-4">
         {/* Section header */}
         <div className="text-center mb-10">
           <h2 className="text-2xl font-medium mb-2">Services</h2>
-          <p className="text-gray-600 max-w-xl mx-auto">
+          <p className="text-white-600 max-w-xl mx-auto">
             Connect with skilled providers in the ASU community
           </p>
         </div>
@@ -74,7 +74,7 @@ const ServiceCard = () => {
                   {service.icon}
                 </div>
                 <h3 className="text-lg font-medium mb-1">{service.title}</h3>
-                <p className="text-gray-600 text-sm">{service.description}</p>
+                <p className="text-white-600 text-sm">{service.description}</p>
               </CardContent>
             </Card>
           ))}
@@ -82,7 +82,7 @@ const ServiceCard = () => {
         
         {/* Call-to-action button */}
         <div className="text-center mt-8">
-          <Button variant="outline" asChild>
+          <Button asChild>
             <Link to="/services">Explore All Services</Link>
           </Button>
         </div>
