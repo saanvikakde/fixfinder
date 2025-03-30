@@ -1,18 +1,22 @@
 import { useState } from "react";
 import "./SignIn.css";
 import Layout from "@/components/Layout";
-import { Link } from "react-router-dom";  
+import { Link, useNavigate } from "react-router-dom"; // added useNavigate for redirect
 
 const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [success, setSuccess] = useState(""); // added success state
+  const navigate = useNavigate(); // used to redirect
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
+    setError("");
+    setSuccess("");
 
     try {
-      const res = await fetch("http://localhost:5000/api/auth/login", {
+      const res = await fetch("http://localhost:5001/api/auth/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
@@ -26,8 +30,15 @@ const SignIn = () => {
       }
 
       localStorage.setItem("token", data.token);
+      localStorage.setItem("user", JSON.stringify(data.user));
       console.log("Login success:", data.user);
-      // TODO: redirect to dashboard, etc.
+
+      setSuccess("Login successful."); // show success message
+
+      // redirect to home after 1.5 seconds
+      setTimeout(() => {
+        navigate("/");
+      }, 1500);
     } catch (err) {
       setError("Network error");
     }
@@ -35,38 +46,39 @@ const SignIn = () => {
 
   return (
     <Layout>
-        <div className="signin-container">
+      <div className="signin-container">
         <form className="signin-form" onSubmit={handleLogin}>
-            <h2>Sign In</h2>
-    
-            <input
+          <h2>Sign In</h2>
+
+          <input
             type="email"
             placeholder="Email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
-            />
-    
-            <input
+          />
+
+          <input
             type="password"
             placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
-            />
-    
-            <button type="submit">Sign In</button>
-    
-            {error && <p className="error-message">{error}</p>}
+          />
 
-            <p className="signup-link">
+          <button type="submit">Sign In</button>
+
+          {success && <p className="success-message">{success}</p>} {/* success message */}
+          {error && <p className="error-message">{error}</p>}       {/* error message */}
+
+          <p className="signup-link">
             Don’t have an account?{" "}
             <Link to="/signup" className="text-primary hover:underline">
-                Sign up.
+              Sign up.
             </Link>
-            </p>
+          </p>
         </form>
-        </div>
+      </div>
     </Layout>
   );
 };

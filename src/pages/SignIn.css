@@ -49,6 +49,16 @@
   
   .error-message {
     color: red;
+    font-weight: 500;
     margin-top: 1rem;
+    margin-bottom: 1rem;
+
+  }
+  
+  .success-message {
+    color: green;
+    font-weight: 500;
+    margin-top: 10px;
+    margin-bottom: 1rem;
   }
   

@@ -1,23 +1,25 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
-import "./SignIn.css"; // reuse same CSS styles
+import { Link, useNavigate } from "react-router-dom"; // added useNavigate
+import "./SignIn.css";
 import Layout from "@/components/Layout";
 
 const SignUp = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [role, setRole] = useState("provider"); // or "user", depending on your logic
+  const [role, setRole] = useState("provider");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
+
+  const navigate = useNavigate(); // added for redirect
 
   const handleSignup = async (e: React.FormEvent) => {
     e.preventDefault();
+    setError("");
+    setSuccess("");
 
     try {
-
       const res = await fetch("http://localhost:5001/api/auth/signup", {
- 
-
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name, email, password, role }),
@@ -26,13 +28,28 @@ const SignUp = () => {
       const data = await res.json();
 
       if (!res.ok) {
-        setError(data.error || "Something went wrong.");
+        if (data.error && data.error.includes("duplicate key")) {
+          setError("An account with that email already exists.");
+        } else {
+          setError(data.error || "Something went wrong.");
+        }
         return;
       }
 
       localStorage.setItem("token", data.token);
+      localStorage.setItem("user", JSON.stringify(data.user));
       console.log("Signup success:", data.user);
-      // TODO: redirect to dashboard or homepage
+
+      setSuccess("Account created successfully.");
+
+      // redirect after 1.5 seconds
+      setTimeout(() => navigate("/"), 1500);
+
+      // reset form
+      setName("");
+      setEmail("");
+      setPassword("");
+      setRole("provider");
     } catch (err) {
       setError("Network error");
     }
@@ -68,18 +85,11 @@ const SignUp = () => {
             required
           />
 
-          {/* Optional: Choose Role */}
-          {/* 
-          <select value={role} onChange={(e) => setRole(e.target.value)} required>
-            <option value="provider">Service Provider</option>
-            <option value="user">Service Seeker</option>
-          </select> 
-          */}
-
           <button type="submit" className="signin-button">
             Sign Up
           </button>
 
+          {success && <p className="success-message">{success}</p>}
           {error && <p className="error-message">{error}</p>}
 
           <p className="signup-link">
