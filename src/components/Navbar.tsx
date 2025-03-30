@@ -83,7 +83,7 @@ const Navbar = () => {
             <p className="mb-4 text-sm text-gray-700">Are you sure you want to log out?</p>
             <div className="flex justify-center gap-4">
               <Button onClick={handleLogout} size="sm">Confirm</Button>
-              <Button variant="outline" onClick={() => setShowConfirmLogout(false)} size="sm">Cancel</Button>
+              <Button onClick={() => setShowConfirmLogout(false)} size="sm">Cancel</Button>
             </div>
           </div>
         </div>

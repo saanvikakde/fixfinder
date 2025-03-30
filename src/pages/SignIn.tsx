@@ -46,7 +46,7 @@ const SignIn = () => {
 
   return (
     <Layout>
-      <div className="signin-container">
+      <div className="signin-container text-black">
         <form className="signin-form" onSubmit={handleLogin}>
           <h2>Sign In</h2>
 
